@@ -30,11 +30,10 @@ By leveraging **SQL**, we can efficiently analyze **millions** of music records 
 Let’s dive into the **data-driven world of music streaming!** 🎶📊  
 
 ---
-## 🎵 Spotify Music Analysis Project  
 
-You can download the dataset here: [Spotify Dataset](https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset) 📥  
+# You can download the dataset here: [Spotify Dataset](https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset) 📥  
 
-### 📌 Step 1: Creating the Table  
+## 📌 Creating the Table  
 
 Before analyzing the data, we first create the `spotify` table to store detailed information about songs, albums, artists, and streaming performance.
 
@@ -69,5 +68,48 @@ CREATE TABLE spotify (
     energy_liveness FLOAT,
     most_played_on VARCHAR(50)
 );
+```
+---
 
+# 📌 15 SQL Practice Questions  
 
+## 🟢 Easy Level  
+
+### 1. Retrieve the names of all tracks that have more than **1 billion** streams.  
+
+```sql
+SELECT track 
+FROM spotify 
+WHERE stream > 1000000000;
+```
+
+### 2. List all **albums** along with their respective **artists**.
+
+```sql
+SELECT album, artist 
+FROM spotify;
+```
+
+### 3. Get the **total number of comments** for tracks where `licensed = TRUE`.  
+
+```sql
+SELECT SUM(comments) AS total_comments 
+FROM spotify 
+WHERE licensed = TRUE;
+```
+
+### 4. Find all **tracks** that belong to the album type **'Single'**.  
+
+```sql
+SELECT track 
+FROM spotify 
+WHERE album_type = 'Single';
+```
+
+5️⃣ Count the **total number of tracks** by each **artist**. 
+
+```sql
+SELECT artist, COUNT(track) AS total_tracks 
+FROM spotify 
+GROUP BY artist;
+```
