@@ -78,8 +78,6 @@ CREATE TABLE spotify (
 
 ## 🟢 Easy Level  
 
----
-
 ### 1. Retrieve the names of all tracks that have more than **1 billion** streams.  
 
 ```sql
@@ -123,8 +121,6 @@ GROUP BY artist;
 
 ## 🔵 Medium Level
 
----
-
 ### 6. Calculate the average danceability of tracks in each album.
 
 ```sql
@@ -167,9 +163,8 @@ WHERE stream > views;
 ```
 
 ---
-## 🔴 Advanced Level
 
----
+## 🔴 Advanced Level
 
 ### 11. Find the top 3 most-viewed tracks for each artist using window functions.
 
@@ -222,6 +217,7 @@ FROM spotify;
 ```
 
 ---
+
 # 🎶 Final Thoughts
 
 By answering these 15 key SQL questions, we can uncover valuable music trends on Spotify. This project isn’t just about practicing SQL—it’s about understanding data-driven insights in the music streaming industry. 🎵📊
