@@ -69,11 +69,16 @@ CREATE TABLE spotify (
     most_played_on VARCHAR(50)
 );
 ```
+
 ---
 
 # 📌 15 SQL Practice Questions  
 
+---
+
 ## 🟢 Easy Level  
+
+---
 
 ### 1. Retrieve the names of all tracks that have more than **1 billion** streams.  
 
@@ -114,7 +119,11 @@ FROM spotify
 GROUP BY artist;
 ```
 
+---
+
 ## 🔵 Medium Level
+
+---
 
 ### 6. Calculate the average danceability of tracks in each album.
 
@@ -157,7 +166,10 @@ FROM spotify
 WHERE stream > views;
 ```
 
+---
 ## 🔴 Advanced Level
+
+---
 
 ### 11. Find the top 3 most-viewed tracks for each artist using window functions.
 
