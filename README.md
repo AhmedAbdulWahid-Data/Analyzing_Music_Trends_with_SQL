@@ -86,12 +86,14 @@ FROM spotify
 WHERE stream > 1000000000;
 ```
 
+
 ### 2. List all **albums** along with their respective **artists**.
 
 ```sql
 SELECT album, artist 
 FROM spotify;
 ```
+
 
 ### 3. Get the **total number of comments** for tracks where `licensed = TRUE`.  
 
@@ -101,6 +103,7 @@ FROM spotify
 WHERE licensed = TRUE;
 ```
 
+
 ### 4. Find all **tracks** that belong to the album type **'Single'**.  
 
 ```sql
@@ -109,6 +112,7 @@ FROM spotify
 WHERE album_type = 'Single';
 ```
 
+
 ### 5. Count the **total number of tracks** by each **artist**. 
 
 ```sql
@@ -116,6 +120,7 @@ SELECT artist, COUNT(track) AS total_tracks
 FROM spotify 
 GROUP BY artist;
 ```
+
 
 ---
 
@@ -129,6 +134,7 @@ FROM spotify
 GROUP BY album;
 ```
 
+
 ### 7. Find the top 5 tracks with the highest energy values.
 
 ```sql
@@ -138,6 +144,7 @@ ORDER BY energy DESC
 LIMIT 5;
 ```
 
+
 ### 8. List all tracks along with their views and likes where official_video = TRUE.
 
 ```sql
@@ -145,6 +152,7 @@ SELECT track, views, likes
 FROM spotify 
 WHERE official_video = TRUE;
 ```
+
 
 ### 9. For each album, calculate the total views of all associated tracks.
 
@@ -154,6 +162,7 @@ FROM spotify
 GROUP BY album;
 ```
 
+
 ### 10. Retrieve the track names that have been streamed on Spotify more than YouTube views.
 
 ```sql
@@ -161,6 +170,7 @@ SELECT track
 FROM spotify 
 WHERE stream > views;
 ```
+
 
 ---
 
@@ -178,6 +188,7 @@ FROM (
 WHERE rank <= 3;
 ```
 
+
 ### 12. Write a query to find tracks where the liveness score is above the average.
 
 ```sql
@@ -185,6 +196,7 @@ SELECT track, liveness
 FROM spotify 
 WHERE liveness > (SELECT AVG(liveness) FROM spotify);
 ```
+
 
 ### 13. Use a WITH clause to calculate the difference between the highest and lowest energy values for tracks in each album.
 
@@ -200,6 +212,7 @@ SELECT album, (max_energy - min_energy) AS energy_difference
 FROM energy_stats;
 ```
 
+
 ### 14. Find tracks where the energy-to-liveness ratio is greater than 1.2.
 
 ```sql
@@ -208,6 +221,7 @@ FROM spotify
 WHERE (energy / liveness) > 1.2;
 ```
 
+
 ### 15. Calculate the cumulative sum of likes for tracks ordered by the number of views using window functions.
 
 ```sql
@@ -215,6 +229,7 @@ SELECT track, views, likes,
        SUM(likes) OVER (ORDER BY views) AS cumulative_likes 
 FROM spotify;
 ```
+
 
 ---
 
