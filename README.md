@@ -32,7 +32,7 @@ Let’s dive into the **data-driven world of music streaming!** 🎶📊
 ---
 ## 🎵 Spotify Music Analysis Project  
 
-You can download the dataset here: [Spotify Dataset]([your_dataset_link_here](https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset)) 📥  
+You can download the dataset here: [Spotify Dataset](https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset) 📥  
 
 ### 📌 Step 1: Creating the Table  
 
