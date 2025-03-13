@@ -248,5 +248,5 @@ FROM spotify;
 ### By answering these 15 key SQL questions, we can uncover valuable music trends on Spotify. This project isn’t just about practicing SQL—it’s about understanding data-driven insights in the music streaming industry. 🎵📊
 
 # If you’re serious about becoming a data genius 😎 
-### 👉 [Follow me on LinkedIn](https://www.linkedin.com/in/ahmed-abdulwahid/) 
+## 👉 [Follow me on LinkedIn](https://www.linkedin.com/in/ahmed-abdulwahid/) 
     
