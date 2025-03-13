@@ -90,7 +90,7 @@ WHERE stream > 1000000000;
 ### 2. List all **albums** along with their respective **artists**.
 
 ```sql
-SELECT album, artist 
+SELECT DISTINCT album, artist 
 FROM spotify;
 ```
 
@@ -131,7 +131,8 @@ GROUP BY artist;
 ```sql
 SELECT album, AVG(danceability) AS avg_danceability 
 FROM spotify 
-GROUP BY album;
+GROUP BY 1
+ORDER BY 2 DESC;
 ```
 
 
@@ -166,9 +167,12 @@ GROUP BY album;
 ### 10. Retrieve the track names that have been streamed on Spotify more than YouTube views.
 
 ```sql
-SELECT track 
-FROM spotify 
-WHERE stream > views;
+SELECT track
+FROM spotify
+GROUP BY track
+HAVING 
+    COALESCE(SUM(CASE WHEN most_played_on = 'Spotify' THEN stream END), 0) 
+    > COALESCE(SUM(CASE WHEN most_played_on = 'Youtube' THEN stream END), 0);
 ```
 
 
@@ -179,12 +183,18 @@ WHERE stream > views;
 ### 11. Find the top 3 most-viewed tracks for each artist using window functions.
 
 ```sql
-SELECT artist, track, views 
-FROM (
-    SELECT artist, track, views, 
-           RANK() OVER (PARTITION BY artist ORDER BY views DESC) AS rank 
-    FROM spotify
-) ranked_tracks 
+WITH ranked_tracks
+AS
+(
+SELECT artist,
+       track,
+       SUM(views) AS Total_views, 
+       DENSE_RANK() OVER (PARTITION BY artist ORDER BY SUM(views) DESC) AS rank 
+FROM spotify
+GROUP BY 1, 2
+ORDER BY 1, 3 DESC
+)
+SELECT * FROM ranked_tracks
 WHERE rank <= 3;
 ```
 
@@ -226,7 +236,7 @@ WHERE (energy / liveness) > 1.2;
 
 ```sql
 SELECT track, views, likes, 
-       SUM(likes) OVER (ORDER BY views) AS cumulative_likes 
+       SUM(COALESCE(likes, 0)) OVER (ORDER BY views ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_likes
 FROM spotify;
 ```
 
@@ -235,5 +245,7 @@ FROM spotify;
 
 # 🎶 Final Thoughts
 
-By answering these 15 key SQL questions, we can uncover valuable music trends on Spotify. This project isn’t just about practicing SQL—it’s about understanding data-driven insights in the music streaming industry. 🎵📊
+### By answering these 15 key SQL questions, we can uncover valuable music trends on Spotify. This project isn’t just about practicing SQL—it’s about understanding data-driven insights in the music streaming industry. 🎵📊
+
+# If you’re serious about becoming a data genius 👉 [Follow me on LinkedIn](https://www.linkedin.com/in/ahmed-abdulwahid/) 
     
