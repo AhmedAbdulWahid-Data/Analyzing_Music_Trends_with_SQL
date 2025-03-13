@@ -1,6 +1,7 @@
 # Analyzing Music Trends with SQL 🎵💿
 
 ---
+
 <img width="691" alt="Screenshot 2025-03-13 at 2 58 54 PM" src="https://github.com/user-attachments/assets/c00f6821-16bf-47a3-8b2a-1cd9bd30cd91" />  
 
 **Spotify** has revolutionized the music industry, becoming the go-to platform for streaming millions of tracks worldwide. Understanding how music performs on Spotify is crucial for 🎤 artists, 🎼 producers, and 🎧 industry professionals looking to maximize their reach and engagement.  
