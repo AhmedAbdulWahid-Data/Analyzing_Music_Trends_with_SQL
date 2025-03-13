@@ -236,7 +236,8 @@ WHERE (energy / liveness) > 1.2;
 
 ```sql
 SELECT track, views, likes, 
-       SUM(COALESCE(likes, 0)) OVER (ORDER BY views ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_likes
+       SUM(COALESCE(likes, 0)) OVER (ORDER BY views
+                           ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_likes
 FROM spotify;
 ```
 
